@@ -1,7 +1,9 @@
 Role Name
 =========
 
-This ansible-role installs a vulnerable version(24.0.5) of nextcloud using docker compose
+This ansible-role installs a vulnerable version(24.0.5) of nextcloud using docker compose. The most
+critical vulnerability in this nextcloud version is a remote code execution vulnerability in workflows
+(CVE-2023-26482).
 
 
 Requirements
