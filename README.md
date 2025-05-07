@@ -1,0 +1,42 @@
+Role Name
+=========
+
+This ansible-role installs a vulnerable version(24.0.5) of nextcloud using docker compose
+
+
+Requirements
+------------
+
+No special requirements
+
+Role Variables
+--------------
+
+```yaml
+nextcloud_rce_dir: "/opt/nextcloud"
+nextcloud_rce_image: "ghcr.io/ait-testbed/attackbed/nextcloud:24.0.5"
+```
+
+Dependencies
+------------
+This role needs docker installed with [atb-ansible-dockerce](https://github.com/ait-testbed/atb-ansible-dockerce)
+
+Example Playbook
+----------------
+
+```yaml
+- hosts: localhost
+  become: true
+  roles:
+    - role: nextcloudrce
+```
+
+License
+-------
+
+GPL-3.0
+
+Author Information
+------------------
+
+Wolfgang Hotwagner (https://www.ait.ac.at)

@@ -1,0 +1,5 @@
+#SPDX-License-Identifier: MIT-0
+---
+# defaults file for nextcloudrce
+nextcloud_rce_dir: "/opt/nextcloud"
+nextcloud_rce_image: "ghcr.io/ait-testbed/attackbed/nextcloud:24.0.5"
