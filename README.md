@@ -15,6 +15,7 @@ Role Variables
 ```yaml
 nextcloud_rce_dir: "/opt/nextcloud"
 nextcloud_rce_image: "ghcr.io/ait-testbed/attackbed/nextcloud:24.0.5"
+nextcloud_rce_domain: "172.17.100.125:8080"
 ```
 
 Dependencies
@@ -29,6 +30,8 @@ Example Playbook
   become: true
   roles:
     - role: nextcloudrce
+      vars:
+        nextcloud_rce_domain: "172.17.100.125:8080"
 ```
 
 License

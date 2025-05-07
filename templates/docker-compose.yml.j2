@@ -22,6 +22,8 @@ services:
       - 8080:80
     links:
       - db
+    volumes:
+      - ${PWD}/config.php:/var/www/nextcloud/config/config.php
     environment:
       - MYSQL_PASSWORD=root
       - MYSQL_DATABASE=nextcloud
