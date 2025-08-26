@@ -30,6 +30,15 @@
   tags:
     - install
 
+- name: Create docker-compose-mail-nextcloud.yml
+  ansible.builtin.template:
+    src: mail_nextcloud_template.yaml.j2
+    dest: "{{nextcloud_rce_dir}}/docker-compose-mail-nextcloud.yml"
+  vars:
+    deploy_mail: "{{ deploy_mail | default(false) }}"
+  tags:
+    - install
+
 - name: Test if container is running
   ansible.builtin.shell: "docker compose ps | grep nextcloud-app-"
   args:
