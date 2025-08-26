@@ -36,6 +36,7 @@
     dest: "{{nextcloud_rce_dir}}/docker-compose-mail-nextcloud.yml"
   vars:
     deploy_mail: "{{ deploy_mail | default(false) }}"
+  when: deploy_mail | default(false)
   tags:
     - install
 

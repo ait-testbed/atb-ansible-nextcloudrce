@@ -1,0 +1,21 @@
+{% if deploy_mail %}
+
+mail:
+  image: debian:12
+  stdin_open: true
+  tty: true
+  volumes:
+    - ${PWD}/mailconfig:/opt/mailconfig
+    - ${PWD}/mailconfig/postfix/main.cf:/etc/postfix/main.cf
+    - ${PWD}/mailconfig/postfix/master.cf:/etc/postfix/master.cf
+    - ${PWD}/mailconfig/postfix/mysql_virtual_mailbox_maps.cf:/etc/postfix/mysql_virtual_mailbox_maps.cf
+    - ${PWD}/mailconfig/dovecot/dovecot-sql.conf.ext:/etc/dovecot/dovecot-sql.conf.ext
+    - ${PWD}/mailconfig/dovecot/conf.d/10-auth.conf:/etc/dovecot/conf.d/10-auth.conf
+    - ${PWD}/mailconfig/dovecot/conf.d/10-mail.conf:/etc/dovecot/conf.d/10-mail.conf
+    - ${PWD}/mailconfig/dovecot/conf.d/10-master.conf:/etc/dovecot/conf.d/10-master.conf
+  ports:
+    - "143:143"
+    - "587:587"
+    - "25:25"
+  entrypoint: ["/bin/bash"]
+{% endif %}
