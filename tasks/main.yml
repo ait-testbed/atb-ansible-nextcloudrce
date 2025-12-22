@@ -18,7 +18,7 @@
 
 - name: Create custom config
   ansible.builtin.template:
-    src: "{{nextcloud_config_file}}"
+    src: "{{nextcloud_rce_configfile}}"
     dest: "{{nextcloud_rce_dir}}/config.php"
   tags:
     - install
