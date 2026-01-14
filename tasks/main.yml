@@ -37,6 +37,12 @@
   ignore_errors: true
   register: container_result
 
+- name: Create cronjob for nextcloud
+  ansible.builtin.cron:
+    name: "Nextcloud cron"
+    minute: "*/2"
+    job: "/usr/bin/docker exec -u www-data -w /var/www/nextcloud nextcloud-app-1 bash -c 'php /var/www/nextcloud/cron.php > /dev/null'"
+
 - name: Start containers
   ansible.builtin.shell: "docker compose up -d"
   args:
