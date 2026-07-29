@@ -5,7 +5,6 @@ This ansible-role installs a vulnerable version(24.0.5) of nextcloud using docke
 critical vulnerability in this nextcloud version is a remote code execution vulnerability in workflows
 (CVE-2023-26482).
 
-
 Requirements
 ------------
 
@@ -35,6 +34,16 @@ Example Playbook
       vars:
         nextcloud_rce_domain: "172.17.100.125:8080"
 ```
+
+Credentials
+----------------
+Three useraccounts are allready preconfigured for nextcloud:
+
+| User          | Password                                                                 |
+|---------------|--------------------------------------------------------------------------|
+| admin         | superdooperhighsecurity                                                  |
+| alice         | alice123alice!                                                           |
+| bob           | bob123bob!                                                               |
 
 License
 -------
